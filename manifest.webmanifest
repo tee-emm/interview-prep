@@ -1,0 +1,9 @@
+{
+  "name": "Service Design Researcher Interview Prep",
+  "short_name": "Interview Prep",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f7",
+  "theme_color": "#165788",
+  "description": "Private interview preparation app"
+}
