@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#165788">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Interview Prep">
+<title>Interview Prep — Service Design Researcher 65579</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header>
+  <div class="headrow">
+    <div>
+      <div class="eyebrow">City of Toronto · Job 65579</div>
+      <h1>Service Design Researcher Interview Prep <span style="font-size:11px;opacity:.7">· Correct Script</span></h1>
+    </div>
+    <div class="countdown" aria-live="polite">
+      <strong id="countdown">Loading…</strong>
+      <small>until Thu 11:00 a.m.</small>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="App sections">
+  <button data-view="today" class="active">Today</button>
+  <button data-view="presentation">Presentation</button>
+  <button data-view="drill">Interview Drill</button>
+  <button data-view="game">Game</button>
+  <button data-view="stories">Story Bank</button>
+  <button data-view="panel">Mock Panel</button>
+  <button data-view="requirements">Requirements</button>
+  <button data-view="quick">Quick Sheet</button>
+</nav>
+
+<main id="main">
+<section id="today" class="view active">
+  <div class="grid">
+    <div class="card span8 priority">
+      <div class="kicker">Your job today</div>
+      <h2>Learn the structure, not a script.</h2>
+      <p class="sub">You already have the content. Use this app to build recall under pressure.</p>
+      <div class="callout"><strong>Presentation:</strong> Created → Connected → Recorded → Reached.<br>
+      <strong>Interview:</strong> Direct answer → specific story → your actions → evidence/result.</div>
+    </div>
+    <div class="card span4">
+      <div class="kicker">Session progress</div>
+      <div class="bigmetric" id="todayPct">0%</div>
+      <div class="progressbar"><span id="todayBar"></span></div>
+      <p class="footer-note">Progress saves automatically on this device.</p>
+    </div>
+    <div class="card span7">
+      <h3>Do these in order</h3>
+      <div id="todayTasks"></div>
+    </div>
+    <div class="card span5">
+      <h3>Emergency 90-minute mode</h3>
+      <p class="sub">Use this if time gets away from you.</p>
+      <ol>
+        <li><strong>20 min:</strong> presentation skeleton + one timed run.</li>
+        <li><strong>25 min:</strong> five core stories aloud.</li>
+        <li><strong>25 min:</strong> six random interview questions.</li>
+        <li><strong>15 min:</strong> presentation Q&amp;A.</li>
+        <li><strong>5 min:</strong> quick sheet, then stop.</li>
+      </ol>
+      <button class="btn secondary" onclick="switchView('presentation')">Start with presentation</button>
+    </div>
+  </div>
+</section>
+
+<section id="presentation" class="view">
+  <div class="grid">
+    <div class="card span7">
+      <div class="row space">
+        <div>
+          <div class="kicker">10-minute assessment</div>
+          <h2>Presentation rehearsal</h2>
+        </div>
+        <span class="chip gold">9:00 warning</span>
+      </div>
+      <div id="presTimer" class="timer">00:00</div>
+      <div class="row">
+        <button class="btn" id="presStart">Start</button>
+        <button class="btn secondary" id="presPause">Pause</button>
+        <button class="btn ghost" id="presReset">Reset</button>
+      </div>
+      <div class="footer-note">A short tone sounds at 9:00 and 10:00 if your browser allows audio.</div>
+    </div>
+    <div class="card span5">
+      <h3>Recovery anchor</h3>
+      <p class="sub">If you blank, say the idea in your own words and continue.</p>
+      <div class="anchor" id="assumptionAnchor">
+        <div>1 · Created</div><div>2 · Connected</div><div>3 · Recorded</div><div>4 · Reached</div>
+      </div>
+      <hr>
+      <strong>Target finish:</strong> 8:30<br>
+      <span class="muted">Do not speed up to “save” memorized wording.</span>
+    </div>
+    <div class="card span12">
+      <div class="row space">
+        <span class="chip blue" id="slideNumber">Slide 0 of 5</span>
+        <div class="row">
+          <button class="btn ghost small" id="prevSlide">← Previous</button>
+          <button class="btn small" id="nextSlide">Next →</button>
+        </div>
+      </div>
+      <div id="slideCard"></div>
+    </div>
+  </div>
+</section>
+
+<section id="drill" class="view">
+  <div class="grid">
+    <div class="card span8">
+      <div class="row space">
+        <div>
+          <div class="kicker">Randomized practice</div>
+          <h2>Interview drill</h2>
+        </div>
+        <span class="chip" id="questionCategory">Question</span>
+      </div>
+      <div class="question" id="questionText"></div>
+      <div class="row">
+        <button class="btn" id="newQuestion">New question</button>
+        <button class="btn secondary" id="revealAnswer">Reveal exemplar</button>
+      </div>
+      <div class="answer" id="answerText"></div>
+      <div id="termsBox" class="hidden"></div>
+      <hr>
+      <label for="drillNotes"><strong>Your 3-word plan</strong></label>
+      <input type="text" id="drillNotes" placeholder="e.g. LCBO · blueprint · 50%">
+    </div>
+    <div class="card span4">
+      <h3>Answer timer</h3>
+      <div id="answerTimer" class="timer" style="font-size:42px">01:30</div>
+      <div class="row">
+        <button class="btn small" id="answerStart">Start 90s</button>
+        <button class="btn ghost small" id="answerReset">Reset</button>
+      </div>
+      <hr>
+      <h3>Score the answer</h3>
+      <div class="scoregrid" id="scoreGrid">
+        <button data-score="1">1</button><button data-score="2">2</button><button data-score="3">3</button><button data-score="4">4</button><button data-score="5">5</button>
+      </div>
+      <p class="footer-note">1 = lost · 3 = usable · 5 = ready</p>
+    </div>
+  </div>
+</section>
+
+<section id="game" class="view">
+  <div class="grid">
+    <div class="card span5 gamehero">
+      <div class="kicker" style="color:#b9d9ee">Interview Arcade</div>
+      <h2>Build retrieval, not memorization.</h2>
+      <p class="sub">Short rounds make you choose the story or presentation logic you would reach for under pressure.</p>
+      <div class="gamestats">
+        <div class="gamestat"><strong id="gameScore">0</strong><span>Score</span></div>
+        <div class="gamestat"><strong id="gameStreak">0</strong><span>Streak</span></div>
+        <div class="gamestat"><strong id="gameRound">0</strong><span>Rounds</span></div>
+      </div>
+      <p class="footer-note" style="color:rgba(255,255,255,.72)">No penalty for taking your time. The point is faster recall with accurate evidence.</p>
+    </div>
+
+    <div class="card span7">
+      <div class="kicker">Choose a mode</div>
+      <div class="game-mode-grid">
+        <button class="game-mode active" id="modeStory">
+          <span class="game-badge">🧠</span>
+          <strong>Story Match</strong>
+          Match a likely panel question to the strongest story you should retrieve first.
+        </button>
+        <button class="game-mode" id="modePath">
+          <span class="game-badge">🧭</span>
+          <strong>Presentation Path</strong>
+          Reinforce the exact logic and sequence of your submitted presentation.
+        </button>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn gold" id="newGameRound">New round</button>
+        <button class="btn ghost small" id="resetGameScore">Reset score</button>
+      </div>
+    </div>
+
+    <div class="card span12">
+      <div class="row space">
+        <div>
+          <div class="kicker" id="gameModeLabel">Story Match</div>
+          <div class="gameprompt" id="gamePrompt">Press “New round” to begin.</div>
+        </div>
+        <span class="chip gold" id="gameCategory">Recall</span>
+      </div>
+
+      <div id="gameChoices" class="gamechoices"></div>
+      <div id="gameSequence" class="sequence hidden"></div>
+      <div id="gameFeedback" class="gamefeedback" aria-live="polite"></div>
+
+      <div class="row" style="margin-top:13px">
+        <button class="btn secondary hidden" id="nextGameRound">Next round</button>
+        <button class="btn ghost small hidden" id="sayCueBtn">Show memory cue</button>
+      </div>
+      <div id="memoryCue" class="callout gold hidden" style="margin-top:12px"></div>
+    </div>
+  </div>
+</section>
+
+<section id="stories" class="view">
+  <div class="grid">
+    <div class="card span12">
+      <div class="kicker">Five flexible stories</div>
+      <h2>Story bank</h2>
+      <p class="sub">For each story, recall: problem → responsibility → actions → evidence/change → result.</p>
+      <div id="storyList"></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel" class="view">
+  <div class="grid">
+    <div class="card span7">
+      <div class="kicker">Structured interview practice</div>
+      <h2>Mock panel</h2>
+      <p class="sub">Simulates question review, answer time, and the silence while panelists write.</p>
+      <div class="question" id="panelQuestion">Press Start Panel.</div>
+      <div class="row">
+        <button class="btn" id="panelStart">Start panel</button>
+        <button class="btn secondary" id="panelNext">Next question</button>
+        <button class="btn ghost" id="panelReset">Reset</button>
+      </div>
+      <hr>
+      <div class="scratch">
+        <div><label><strong>Competency</strong></label><input id="panelComp" type="text"></div>
+        <div><label><strong>Story</strong></label><input id="panelStory" type="text"></div>
+        <div><label><strong>3 evidence words</strong></label><input id="panelWords" type="text"></div>
+        <div><label><strong>Closing sentence</strong></label><input id="panelClose" type="text"></div>
+      </div>
+    </div>
+    <div class="card span5">
+      <h3>Panel timer</h3>
+      <div id="panelTimer" class="timer" style="font-size:43px">00:30</div>
+      <div id="panelPhase" class="chip blue">Prep</div>
+      <p class="footer-note">30 sec prep → 2:00 answer → 10 sec panel writing.</p>
+      <hr>
+      <div><strong>Question</strong> <span id="panelCount">0 / 5</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="requirements" class="view">
+  <div class="grid">
+    <div class="card span8">
+      <div class="row space">
+        <div><div class="kicker">Posting coverage</div><h2>Requirement checklist</h2></div>
+        <span class="chip blue" id="reqPct">0%</span>
+      </div>
+      <p class="sub">Check an item when you can explain it with a concrete example or a technically sound answer.</p>
+      <div class="progressbar"><span id="reqBar"></span></div>
+      <div id="reqList"></div>
+    </div>
+    <div class="card span4">
+      <h3>How to use this</h3>
+      <p>Do not memorize posting language. Make each requirement easy for the panel to score by attaching it to evidence.</p>
+      <div class="callout gold"><strong>If a method comes up that you have less hands-on experience with:</strong> state your actual experience, explain when you would use the method, and do not inflate tool or method ownership.</div>
+    </div>
+  </div>
+</section>
+
+<section id="quick" class="view">
+  <div class="grid">
+    <div class="card span6">
+      <div class="kicker">Presentation</div>
+      <h2>Five-slide logic</h2>
+      <ol>
+        <li><strong>Understand:</strong> three accounts; cause unresolved.</li>
+        <li><strong>Assumptions:</strong> created, connected, recorded, reached.</li>
+        <li><strong>Research:</strong> one primary test per assumption; records baseline; people/cases explain variation.</li>
+        <li><strong>Synthesis:</strong> analyze each assumption, integrate evidence, connect across service, check interpretation.</li>
+        <li><strong>Outputs:</strong> finding → owner → next test/action → measure.</li>
+      </ol>
+      <div class="callout"><strong>Close:</strong> Discovery is complete when the City can explain whether and where requests break down, how often, under what conditions, and why residents, 311 and Transportation experience the service differently.</div>
+    </div>
+    <div class="card span6">
+      <div class="kicker">Interview</div>
+      <h2>Five story triggers</h2>
+      <p><strong>City housing:</strong> 15 low-income residents · inclusion · policy/service recommendations</p>
+      <p><strong>City 311 / short-term rental:</strong> 200+ participants · usability · blueprint/prototype · 40+ stakeholders</p>
+      <p><strong>LCBO:</strong> 15+ employees · field/ethnographic research · UAT · blueprint · PEGA workshops · 650+ stores · 50% project reduction</p>
+      <p><strong>CAMH:</strong> youth focus groups/co-design · lived experience · accessibility · cognitive load · clinicians/product</p>
+      <p><strong>Zephyr:</strong> sales/order/conversion/checkout KPIs · feedback · Delivery Zone · implementation · continuous improvement</p>
+    </div>
+    <div class="card span6">
+      <h3>Words worth using when they fit</h3>
+      <div id="quickTerms" class="row"></div>
+    </div>
+    <div class="card span6">
+      <h3>Before you enter</h3>
+      <ul>
+        <li>Answer the question that was asked.</li>
+        <li>Use one specific example.</li>
+        <li>Say what <em>you</em> did.</li>
+        <li>Name the evidence or result.</li>
+        <li>Stop when the answer is complete. Panel silence is normal.</li>
+      </ul>
+      <button class="btn ghost" id="resetAll">Reset app progress</button>
+    </div>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="core.js"></script>
+<script src="presentation.js"></script>
+<script src="drill.js"></script>
+<script src="game.js"></script>
+<script src="stories.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
